@@ -28,9 +28,9 @@ data class UserEntity(
   var disabled: Boolean = false,
 
   @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-  val roles:Set<UserRoleEntity>?
+  val roles: List<UserRoleEntity>
 
-  ) {
+) {
   override fun toString(): String {
     return "UserEntity"
   }

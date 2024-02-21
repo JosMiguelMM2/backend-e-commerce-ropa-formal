@@ -36,8 +36,10 @@ dependencies {
   testImplementation("org.springframework.boot:spring-boot-starter-test")
 
   //libreria para Sawgger
-
   implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+
+  //libreria de spring security
+  implementation("org.springframework.boot:spring-boot-starter-security")
 }
 
 tasks.withType<KotlinCompile> {
