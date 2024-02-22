@@ -40,6 +40,9 @@ dependencies {
 
   //libreria de spring security
   implementation("org.springframework.boot:spring-boot-starter-security")
+
+  //liberia para JWT
+  implementation ("com.auth0:java-jwt:4.4.0")
 }
 
 tasks.withType<KotlinCompile> {

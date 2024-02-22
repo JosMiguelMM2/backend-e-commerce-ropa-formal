@@ -1,4 +1,4 @@
-package com.ropaformal.ecommerceropaformal.service
+package com.ropaformal.ecommerceropaformal.service.dto
 
 import lombok.Data
 
