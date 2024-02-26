@@ -1,5 +1,6 @@
 package com.ropaformal.ecommerceropaformal.persistence.entity
 
+import com.ropaformal.ecommerceropaformal.domain.clases.User
 import jakarta.persistence.*
 import lombok.Getter
 import lombok.NoArgsConstructor
@@ -18,8 +19,11 @@ data class UserEntity(
   @Column(nullable = false, length = 40)
   val email: String?,
 
+  @Column(nullable = false, length = 60)
+  val name:String?,
+
   @Column(nullable = false, length = 200)
-  val password: String?,
+  var password: String?,
 
   @Column(nullable = false)
   var locked: Boolean = false,
@@ -33,6 +37,15 @@ data class UserEntity(
 ) {
   override fun toString(): String {
     return "UserEntity"
+  }
+
+  fun toUser(): User {
+    return User(
+      username = this.username,
+      name = this.name,
+      password = this.password,
+      email = this.email
+    )
   }
 }
 

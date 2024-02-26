@@ -38,7 +38,6 @@ class JwtFilter : OncePerRequestFilter() {
     // 2-> Validar que sea autentico el JWT
     val jwt: String = authHeader.split(" ")[1].trim()
     if (!this.jwtUtil.isValido(jwt)) {
-      println("No es valido")
       filterChain.doFilter(request, response)
       return
     }
@@ -53,7 +52,6 @@ class JwtFilter : OncePerRequestFilter() {
       UsernamePasswordAuthenticationToken(user.username, user.password, user.authorities)
 
     SecurityContextHolder.getContext().authentication = authenticationToken
-    println("Este es el token $authenticationToken")
     filterChain.doFilter(request, response)
 
   }

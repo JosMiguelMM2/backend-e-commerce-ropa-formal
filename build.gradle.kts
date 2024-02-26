@@ -43,6 +43,10 @@ dependencies {
 
   //liberia para JWT
   implementation ("com.auth0:java-jwt:4.4.0")
+
+  // https://mvnrepository.com/artifact/org.mapstruct/mapstruct
+  implementation("org.mapstruct:mapstruct:1.5.5.Final")
+
 }
 
 tasks.withType<KotlinCompile> {

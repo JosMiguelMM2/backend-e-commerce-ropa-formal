@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/prueba")
+@RequestMapping("/e/api/prueba")
 class PruebaController {
 
   @GetMapping
-  fun getMensaje():String{
+  fun getMensaje(): String {
     return "Hola, soy una prueba de acceso"
   }
 }
