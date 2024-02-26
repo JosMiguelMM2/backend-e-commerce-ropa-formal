@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -29,15 +30,17 @@ class SingUpController {
     }
   }
 
-  @PutMapping("/change")
+  @PatchMapping("/change")
   @PreAuthorize("isAuthenticated()")
-  fun cambioPassword(@RequestBody newPassword: String): ResponseEntity<UserEntity> {
-    val userName = SecurityContextHolder.getContext().authentication.name
-    val user = this.userService.busdcarId(userName)
-    return if (user == null) {
-      return ResponseEntity.notFound().build()
+  fun cambioPassword(@RequestBody newPassword: Map<String, String>): ResponseEntity<UserEntity> {
+    val newPasswordf = newPassword["newPassword"]
+    if (newPasswordf == null) {
+      return ResponseEntity.badRequest().build()
     } else {
-      return ResponseEntity.ok(this.userService.UpPassword(userName, newPassword))
+      val userName = SecurityContextHolder.getContext().authentication.name
+      this.userService.UpPassword(userName, newPasswordf)
+      return ResponseEntity.ok().build()
     }
+
   }
 }

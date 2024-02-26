@@ -34,7 +34,7 @@ class UserService {
     val resultado = busdcarId(id)
     val userEntity = resultado.get()
     return run {
-      userEntity.password = passwordEncoder.encode("Hola")
+      userEntity.password = passwordEncoder.encode(newPassword)
       this.userRepository.save(userEntity)
     }
   }
