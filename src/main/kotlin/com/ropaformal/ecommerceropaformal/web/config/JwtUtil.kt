@@ -15,7 +15,10 @@ class JwtUtil {
   private val secret_key: String = "<1(/?-e0k%£lK(H23&v89KOp/a?4H!nQZ(,]3£z2h|<ExKZw"
   private val ALGORIHM: Algorithm = Algorithm.HMAC256(secret_key)
 
-  //funcion para crear el el token
+  /**
+   *   funcion para crear el el token
+   */
+
   fun crearAlgorithm(userName: String): String {
     return JWT.create()
       .withSubject(userName)
@@ -25,6 +28,10 @@ class JwtUtil {
         Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(15))
       ).sign(ALGORIHM)
   }
+
+  /**
+   * Verifica que el token sea valido y devueve una respuesta
+   */
 
   fun isValido(jwt: String): Boolean {
     try {
@@ -37,6 +44,10 @@ class JwtUtil {
     }
   }
 
+
+  /**
+   * Retorna el nombre del usuario
+   */
   fun getUsername(jwt: String): String {
     return JWT.require(ALGORIHM)
       .build()

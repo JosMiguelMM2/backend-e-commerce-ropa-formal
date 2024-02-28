@@ -9,8 +9,19 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 import java.util.*
 
+/**
+ * Desde esta clase se le pasan los parametros a spring security
+ * UserDetailsService -> usando esta funcion que retorna los parametros que
+ * lleva cada dato requerido para la autenticacion
+ */
+
 @Service
-class UserSecurityService : UserDetailsService {
+class UserSecurityService : UserDetailsService{
+
+  /**
+   * Esta interface se iniara despues por esto se marca con este decorador
+   */
+
   @Autowired
   private lateinit var userRepository: UserRepository
   override fun loadUserByUsername(username: String): UserDetails {

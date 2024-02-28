@@ -3,6 +3,9 @@ package com.ropaformal.ecommerceropaformal.domain.clases
 import com.ropaformal.ecommerceropaformal.persistence.entity.UserEntity
 import org.springframework.security.crypto.password.PasswordEncoder
 
+/**
+ * Esta clase permite tener patrones de diseño orientados al dominio
+ */
 
 data class User(
   val username: String?,
@@ -10,6 +13,11 @@ data class User(
   val email: String?,
   val password: String?
 ) {
+
+  /**
+   * Este metodo convierte de clase user a
+   * UserEntity para que guarde correctamente en la base de datos
+   */
   fun toEntity(passwordEncoder: PasswordEncoder): UserEntity {
 
     return UserEntity(

@@ -14,6 +14,10 @@ import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import kotlin.jvm.Throws
 
+/**
+ * Con esta clase se configura el acceso y configuracion de seguridad
+ * todo dependiente del tipo se usuario
+ */
 @Configuration
 class SecurityConfig {
 
@@ -24,10 +28,10 @@ class SecurityConfig {
   @Throws(Exception::class) //habilita la opcion de encontrar errores
   fun filterChain(httpSecurity: HttpSecurity): SecurityFilterChain {
     httpSecurity
-      .csrf { it.disable() }
-      .cors { }
+      .csrf { it.disable() } // desactiva csrf
+      .cors { }              // habilita cors
       .sessionManagement { sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
-      .authorizeHttpRequests { customizeRequests ->
+      .authorizeHttpRequests { customizeRequests -> //habilita los token
         customizeRequests
           .requestMatchers("/login/**", "e/sing/up").permitAll()
           .requestMatchers(HttpMethod.GET, "/e/api/**").hasAnyRole("ADMIN")
@@ -35,7 +39,7 @@ class SecurityConfig {
           .authenticated()
 
       }
-      .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
+      .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java) //habilita el filtro
     return httpSecurity.build()
   }
 
