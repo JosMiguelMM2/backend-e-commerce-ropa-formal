@@ -38,3 +38,7 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+
+# variables de entorno
+/src/main/resources/application.properties
