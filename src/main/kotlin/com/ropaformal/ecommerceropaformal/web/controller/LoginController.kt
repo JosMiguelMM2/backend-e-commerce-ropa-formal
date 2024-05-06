@@ -33,6 +33,7 @@ class LoginController {
   fun login(@RequestBody loginDto: LoginDto): ResponseEntity<Void> {
     val login = UsernamePasswordAuthenticationToken(loginDto.username, loginDto.password)
     val autenticacion: Authentication = this.authenticationManager.authenticate(login)
+    println(autenticacion)
     val jwt: String = this.jwtUtil.crearAlgorithm(login.name)
     return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).build()
   }
