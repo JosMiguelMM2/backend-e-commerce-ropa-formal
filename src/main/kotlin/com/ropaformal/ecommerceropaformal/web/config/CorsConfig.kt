@@ -17,7 +17,7 @@ class CorsConfig {
 
 
   /**
-   * Bean significa que tiene que pasar por el core de spring
+   *  Bean significa que tiene que pasar por el core de spring
    */
 
   @Bean
