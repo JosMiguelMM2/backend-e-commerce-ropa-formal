@@ -24,7 +24,7 @@ class CorsConfig {
   fun corsConfigurationSource(): CorsConfigurationSource {
     val corsConfiguration = CorsConfiguration()
     corsConfiguration.setAllowedOriginPatterns(
-      listOf("*")
+      listOf("http://localhost:4000", "https://formal-wear-ecommerce.vercel.app")
     ) //ruta a las cuales se concede acceso
     corsConfiguration.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "PATCH") // metodos permitidos
     corsConfiguration.allowedHeaders = listOf("*", "Authorization") //acceso a los headers para tomar el token
