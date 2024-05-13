@@ -24,6 +24,7 @@ import java.time.LocalDateTime
  * Esta clase permite Crear un nuevo usuario y cambiar contraseña
  */
 
+
 @RestController
 @RequestMapping("/e/sing")
 class SingUpController {

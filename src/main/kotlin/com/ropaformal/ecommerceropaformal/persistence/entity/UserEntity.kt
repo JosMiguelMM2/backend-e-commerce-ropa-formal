@@ -1,6 +1,5 @@
 package com.ropaformal.ecommerceropaformal.persistence.entity
 
-import com.ropaformal.ecommerceropaformal.domain.clases.User
 import jakarta.persistence.*
 import lombok.Getter
 import lombok.NoArgsConstructor
@@ -39,7 +38,7 @@ data class UserEntity(
 
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_persona", nullable = false)
-  val personas: Personas
+  val personas: PersonasEntity
 ) {
 
   /**

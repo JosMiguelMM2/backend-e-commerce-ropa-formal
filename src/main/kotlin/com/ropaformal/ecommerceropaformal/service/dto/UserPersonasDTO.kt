@@ -1,7 +1,7 @@
 package com.ropaformal.ecommerceropaformal.service.dto
 
 import com.ropaformal.ecommerceropaformal.domain.clases.User
-import com.ropaformal.ecommerceropaformal.persistence.entity.Personas
+import com.ropaformal.ecommerceropaformal.persistence.entity.PersonasEntity
 
 /**
  * Se crea esta clase para agrupar los dos servicios e inssertartar los dos componetes
@@ -9,5 +9,5 @@ import com.ropaformal.ecommerceropaformal.persistence.entity.Personas
  */
 data class UserPersonasDTO(
   val user: User,
-  val personas: Personas
+  val personas: PersonasEntity
 ) {}
