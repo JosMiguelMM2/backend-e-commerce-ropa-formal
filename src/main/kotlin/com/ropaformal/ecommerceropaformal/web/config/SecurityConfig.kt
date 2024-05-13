@@ -33,11 +33,11 @@ class SecurityConfig {
       .sessionManagement { sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
       .authorizeHttpRequests { customizeRequests -> //habilita los token
         customizeRequests
-          .requestMatchers("/login/**", "/e/sing/up", "/tecnica/**").permitAll()
+          .requestMatchers("/login/**", "/e/sing/up").permitAll()
           .requestMatchers(HttpMethod.GET, "/e/api/**").hasAnyRole("ADMIN")
           .anyRequest()
-          .permitAll()
-          //.authenticated()
+          //.permitAll()
+          .authenticated()
 
       }
       .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java) //habilita el filtro

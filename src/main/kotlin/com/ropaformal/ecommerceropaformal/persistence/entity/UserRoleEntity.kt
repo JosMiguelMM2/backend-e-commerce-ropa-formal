@@ -36,7 +36,7 @@ data class UserRoleEntity(
   val granteDate: LocalDateTime?,
 
   @ManyToOne
-  @JoinColumn(name = "username", insertable = false)
+  @JoinColumn(name = "username", insertable = true)
   val user: UserEntity?
 ) {
   override fun toString(): String {
