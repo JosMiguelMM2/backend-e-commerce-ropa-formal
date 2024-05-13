@@ -16,4 +16,12 @@ class PersonaService {
   fun getPersonaById(id: Int): Personas {
     return this.personaRepository.findById(id).get()
   }
+
+  /**
+   * Funcion para guardar una persona
+   */
+  fun save(personas: Personas): Personas {
+    return this.personaRepository.save(personas)
+  }
+
 }

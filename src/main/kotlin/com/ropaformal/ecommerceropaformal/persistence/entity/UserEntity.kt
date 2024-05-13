@@ -21,12 +21,6 @@ data class UserEntity(
   @Column(name = "username", nullable = false, length = 60)
   val username: String?,
 
-  @Column(nullable = false, length = 40)
-  val email: String?,
-
-  @Column(nullable = false, length = 60)
-  val name: String?,
-
   @Column(nullable = false, length = 200)
   var password: String?,
 

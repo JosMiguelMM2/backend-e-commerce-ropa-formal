@@ -24,14 +24,14 @@ data class Personas(
   @Column(length = 50)
   val apellido: String?,
 
-  @Column(name = "ndocumento")
-  val numeroDocumento: Int?,
+  @Column(name = "ndocumento", length = 20)
+  val numeroDocumento: String,
 
   @Column(length = 50)
   val correo: String?,
 
-  @Column(name = "telefono")
-  val telefono: Int?,
+  @Column(name = "telefono", length = 10)
+  val telefono: String?,
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_tipo_documento", nullable = false)

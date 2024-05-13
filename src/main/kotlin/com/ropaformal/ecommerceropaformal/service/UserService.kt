@@ -31,10 +31,17 @@ class UserService {
 
 
   /**
+   *  Se inserta el valor para buscar la persona
+   */
+  @Autowired
+  private lateinit var personaService: PersonaService
+
+  /**
    * Registrar un nuevo usuario
    */
   fun NewUser(user: User): User {
-    val userEntity = user.toEntity(passwordEncoder)
+    val persona = personaService.getPersonaById(user.id_persona!!)
+    val userEntity = user.toEntity(passwordEncoder, persona)
     this.userRepository.save(userEntity)
     return user
   }

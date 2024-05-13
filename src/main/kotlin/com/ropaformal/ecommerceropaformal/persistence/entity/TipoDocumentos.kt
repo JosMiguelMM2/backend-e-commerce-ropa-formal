@@ -23,5 +23,5 @@ data class TipoDocumentos(
 
   @JsonIgnore
   @OneToMany(mappedBy = "tipoDocumentos", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-  val personas:Set<Personas>?
+  val personas: Set<Personas>?
 ) {}

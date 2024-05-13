@@ -3,7 +3,9 @@ package com.ropaformal.ecommerceropaformal.web.controller
 
 import com.ropaformal.ecommerceropaformal.domain.clases.User
 import com.ropaformal.ecommerceropaformal.persistence.entity.UserEntity
+import com.ropaformal.ecommerceropaformal.service.PersonaService
 import com.ropaformal.ecommerceropaformal.service.UserService
+import com.ropaformal.ecommerceropaformal.service.dto.UserPersonasDTO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
@@ -25,15 +27,20 @@ class SingUpController {
   @Autowired
   private lateinit var userService: UserService
 
+  @Autowired
+  private lateinit var personaService: PersonaService
+
   /**
    * Este metodo crea un usuario
    */
   @PostMapping("/up")
-  fun save(@RequestBody user: User): ResponseEntity<User> {
-    return if (user.username?.let { this.userService.budcarId(it) } == true) {
+  fun save(@RequestBody userPersonasDTO: UserPersonasDTO): ResponseEntity<User> {
+    return if (userPersonasDTO.user.username?.let { this.userService.budcarId(it) } == true) {
       ResponseEntity.badRequest().build()
     } else {
-      val envio = this.userService.NewUser(user)
+      val savedPersona = this.personaService.save(userPersonasDTO.personas)
+      val userWithPersona = userPersonasDTO.user.copy(id_persona = savedPersona.idPersonas)
+      val envio = this.userService.NewUser(userWithPersona)
       ResponseEntity.ok(envio)
     }
   }
