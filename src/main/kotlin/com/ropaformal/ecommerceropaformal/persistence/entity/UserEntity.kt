@@ -41,24 +41,24 @@ data class UserEntity(
    * a la tabala user_role
    */
   @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-  val roles: List<UserRoleEntity>
+  val roles: List<UserRoleEntity>,
 
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "id_persona", nullable = false)
+  val personas: Personas
 ) {
-  override fun toString(): String {
-    return "UserEntity"
-  }
 
   /**
    * Este es un metodo definido para el patron de diseño orientado al dominio
    * convierte de clase UserEntity a User
    */
-  fun toUser(): User {
+  /*fun toUser(): User {
     return User(
       username = this.username,
       name = this.name,
       password = this.password,
-      email = this.email
+      email = this.email,
     )
-  }
+  }*/
 }
 

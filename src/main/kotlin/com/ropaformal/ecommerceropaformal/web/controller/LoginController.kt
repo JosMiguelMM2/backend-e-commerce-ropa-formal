@@ -7,7 +7,6 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
-import org.springframework.security.core.Authentication
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -32,8 +31,7 @@ class LoginController {
   @PostMapping()
   fun login(@RequestBody loginDto: LoginDto): ResponseEntity<Void> {
     val login = UsernamePasswordAuthenticationToken(loginDto.username, loginDto.password)
-    val autenticacion: Authentication = this.authenticationManager.authenticate(login)
-    println(autenticacion)
+    this.authenticationManager.authenticate(login)
     val jwt: String = this.jwtUtil.crearAlgorithm(login.name)
     return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).build()
   }

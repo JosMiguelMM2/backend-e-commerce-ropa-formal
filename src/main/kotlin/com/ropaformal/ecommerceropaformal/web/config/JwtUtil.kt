@@ -25,7 +25,7 @@ class JwtUtil {
       .withIssuer("j75bmLwq/(Y]7DCnA|YEXD=-t76#)x^r5;sC3U4xC2<l0/wO2D")
       .withIssuedAt(Date())
       .withExpiresAt(
-        Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(15))
+        Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(5))
       ).sign(ALGORIHM)
   }
 

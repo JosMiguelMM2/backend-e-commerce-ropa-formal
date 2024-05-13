@@ -41,8 +41,8 @@ class JwtFilter : OncePerRequestFilter() {
       filterChain.doFilter(request, response)
       return
     }
-    // 3 -> Cargar l usuario del servicio de UserDetailsService
 
+    // 3 -> Cargar l usuario del servicio de UserDetailsService
     val userName = this.jwtUtil.getUsername(jwt)
     val user: User = this.userDetailsService.loadUserByUsername(userName) as User
 
