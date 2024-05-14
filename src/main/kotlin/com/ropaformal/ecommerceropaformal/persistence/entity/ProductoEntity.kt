@@ -10,7 +10,7 @@ enum class GeneroRopa{
 
 @Entity
 @Table(name = "productos")
-data class ProductosEntity(
+data class ProductoEntity(
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
@@ -40,10 +40,10 @@ data class ProductosEntity(
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_color")
-  val coloresEntity: ColoresEntity?,
+  val coloresEntity: ColorEntity?,
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_categoria")
-  val categoriasEntity: CategoriasEntity?
+  val categoriasEntity: CategoriaEntity?
 )
 

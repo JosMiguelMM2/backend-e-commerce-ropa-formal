@@ -1,7 +1,7 @@
 package com.ropaformal.ecommerceropaformal.persistence.repository
 
-import com.ropaformal.ecommerceropaformal.persistence.entity.TipoDocumentosEntity
+import com.ropaformal.ecommerceropaformal.persistence.entity.TipoDocumentoEntity
 import org.springframework.data.repository.CrudRepository
 
-interface TipoDocumentosRepository : CrudRepository<TipoDocumentosEntity, Int> {
+interface TipoDocumentosRepository : CrudRepository<TipoDocumentoEntity, Int> {
 }

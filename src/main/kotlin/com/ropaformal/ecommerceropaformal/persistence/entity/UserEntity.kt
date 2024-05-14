@@ -38,7 +38,7 @@ data class UserEntity(
 
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_persona", nullable = false)
-  val personas: PersonasEntity
+  val personas: PersonaEntity
 ) {
 
   /**

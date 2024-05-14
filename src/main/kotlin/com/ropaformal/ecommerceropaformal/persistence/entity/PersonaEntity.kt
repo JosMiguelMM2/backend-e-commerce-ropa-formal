@@ -11,7 +11,7 @@ import lombok.Setter
 @Getter
 @Setter
 @NoArgsConstructor
-data class PersonasEntity(
+data class PersonaEntity(
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +35,7 @@ data class PersonasEntity(
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_tipo_documento", nullable = false)
-  val tipoDocumentos: TipoDocumentosEntity?,
+  val tipoDocumentos: TipoDocumentoEntity?,
 
   @JsonIgnore
   @OneToOne(mappedBy = "personas", cascade = [CascadeType.ALL])

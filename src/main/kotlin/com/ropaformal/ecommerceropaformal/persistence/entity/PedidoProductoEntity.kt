@@ -18,7 +18,7 @@ import lombok.Setter
 @Getter
 @Setter
 @NoArgsConstructor
-data class PedidosProductosEntity(
+data class PedidoProductoEntity(
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,9 +27,9 @@ data class PedidosProductosEntity(
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_producto")
-  val productosEntity: ProductosEntity?,
+  val productosEntity: ProductoEntity?,
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_pedido")
-  val pedidosEntity: PedidosEntity?
+  val pedidosEntity: PedidoEntity?
 )

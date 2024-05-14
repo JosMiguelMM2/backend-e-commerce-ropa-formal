@@ -29,5 +29,5 @@ data class EstadoPedidoEntity(
   val estado: String?,
 
   @OneToMany(mappedBy = "estadoPedidosEntity", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-  val pedidos: Set<PedidosEntity>?
+  val pedidos: Set<PedidoEntity>?
 ) {}

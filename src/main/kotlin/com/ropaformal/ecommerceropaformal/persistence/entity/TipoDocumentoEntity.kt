@@ -11,7 +11,7 @@ import lombok.Setter
 @Getter
 @Setter
 @NoArgsConstructor
-data class TipoDocumentosEntity(
+data class TipoDocumentoEntity(
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(
     name = "id",
     nullable = false
@@ -23,5 +23,5 @@ data class TipoDocumentosEntity(
 
   @JsonIgnore
   @OneToMany(mappedBy = "tipoDocumentos", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-  val personas: Set<PersonasEntity>?
+  val personas: Set<PersonaEntity>?
 ) {}

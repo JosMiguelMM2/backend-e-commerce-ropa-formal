@@ -6,14 +6,13 @@ import lombok.NoArgsConstructor
 import lombok.Setter
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import java.time.LocalTime
 
 @Entity
 @Table(name = "pedidos")
 @Setter
 @Getter
 @NoArgsConstructor
-data class PedidosEntity(
+data class PedidoEntity(
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
