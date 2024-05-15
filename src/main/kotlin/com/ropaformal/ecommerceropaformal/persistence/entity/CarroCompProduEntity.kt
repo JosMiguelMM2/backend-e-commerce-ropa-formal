@@ -1,5 +1,6 @@
 package com.ropaformal.ecommerceropaformal.persistence.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import jakarta.persistence.*
 
 @Entity
@@ -19,6 +20,7 @@ data class CarroCompProduEntity(
   @JoinColumn(name = "id_producto")
   val productosEntity: ProductoEntity?,
 
+  @JsonBackReference
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_carro_compra")
   val carroCompras: CarroCompraEntity?

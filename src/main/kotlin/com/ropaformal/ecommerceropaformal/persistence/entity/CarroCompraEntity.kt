@@ -1,15 +1,10 @@
 package com.ropaformal.ecommerceropaformal.persistence.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import jakarta.persistence.*
-import lombok.Getter
-import lombok.NoArgsConstructor
-import lombok.Setter
 
 @Entity
 @Table(name = "carro_compras")
-@Getter
-@Setter
-@NoArgsConstructor
 data class CarroCompraEntity(
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +15,10 @@ data class CarroCompraEntity(
   @Column(name = "estado")
   val estado: EstadoCarro?,
 
+  @JsonBackReference
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "id_user")
-  val userEntity: UserEntity?
+  val userEntity: UserEntity?,
 )
 
 enum class EstadoCarro {

@@ -1,5 +1,6 @@
 package com.ropaformal.ecommerceropaformal.persistence.entity
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 import lombok.Getter
 import lombok.NoArgsConstructor
@@ -29,10 +30,7 @@ data class UserEntity(
   @Column(nullable = false)
   var disabled: Boolean = false,
 
-  /**
-   * Es aca donde se realiza la coneccion relacion de uno a muchos
-   * a la tabala user_role
-   */
+  @JsonManagedReference
   @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
   val roles: List<UserRoleEntity>,
 
