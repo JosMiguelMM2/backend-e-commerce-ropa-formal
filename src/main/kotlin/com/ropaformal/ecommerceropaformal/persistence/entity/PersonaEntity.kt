@@ -33,12 +33,18 @@ data class PersonaEntity(
   @Column(name = "telefono", length = 10)
   val telefono: String?,
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id_tipo_documento", nullable = false)
-  val tipoDocumentos: TipoDocumentoEntity?,
+  @Column(name = "tipodocumento", length = 2)
+  @Enumerated(EnumType.ORDINAL)
+  val tipoDocumento: TipoDocumentoEntity,
 
   @JsonIgnore
   @OneToOne(mappedBy = "personas", cascade = [CascadeType.ALL])
   val userEntity: UserEntity?
 
-) {}
+)
+
+enum class TipoDocumentoEntity {
+  CC,
+  CE,
+  TI
+}
